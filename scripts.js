@@ -1,4 +1,4 @@
-var todos =[ //we dont need this variable this wasa only for testing
+var todos =[ //we dont need this variable this was only for testing, it will be created from empty
     {
       text:'JavaScript',
       done:true,
