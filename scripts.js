@@ -1,16 +1,16 @@
 var todos =[ //we dont need this variable this was only for testing, it will be created from empty
-    {
-      text:'JavaScript',
-      done:true,
-    },
-    {
-        text:'Angular',
-        done:true,
-    },
-    {
-        text:'React',
-        done:false,
-    },
+    // {
+    //   text:'JavaScript',
+    //   done:true,
+    // },
+    // {
+    //     text:'Angular',
+    //     done:true,
+    // },
+    // {
+    //     text:'React',
+    //     done:false,
+    // },
 
 ]
 
@@ -31,6 +31,9 @@ const toDoApp = {
                 this.newTodo = {
                     done:false
                 };
+                window.localStorage.setItem("todos",JSON.stringify(this.todos))   //this localstorage is to add new todos to the storage of browser.
+                //to convert the object of todos to JSON we use "JSON.stringfify"
+                //setItem("name of key",value)
             }else{
                 alert("You left the input blank!!")
             }
