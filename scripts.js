@@ -44,8 +44,22 @@ const toDoApp = {
         clearAll: function(){
          this.todos = [];
         },
+        storeTodos(){
+            //when we want to store the todos on any click i.e method call, we can make that as a method as well
+            localStorage.setItem("todos",JSON.stringify(this.todos)); //but this is the old version of doing things and dont use this now
 
     },
+    created() {
+        //when we want to load the stored properties from local storage to Data properties we want that to
+        //be done after the Dom is Created and hence use "Created()" life cycle hooks
+        this.todos = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")): this.todos;
+        //using  ternary opr and if we get item undernamed "todos", parse it JSON.parse or else return original object "todos".
+    },
+    updated() {
+        //So even on every update if we want to store the values on the storage we can duse this code.
+        localStorage.setItem("todos",JSON.stringify(this.todos));
+        //after this it will load correctly every time as the data is being stored in the browser memory.
+    }
 }
 
 Vue.createApp(toDoApp).mount('#app')
